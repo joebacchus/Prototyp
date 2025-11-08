@@ -1,0 +1,20 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	}
+],
+  "settings": {
+    "files.exclude": {
+      "**/.*": true,
+      "**/.*/**": true,
+      "pixi.toml": true,
+      "pixi.lock": true,
+      "**/workspace/sharables": true,
+      "**/configs": true, 
+      "**/configs/**": true,
+    },
+    "workbench.panel.visible": false,
+    "workbench.activityBar.location": "hidden"
+  }
+}
