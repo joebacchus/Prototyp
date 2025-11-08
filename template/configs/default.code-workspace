@@ -12,9 +12,45 @@
       "pixi.lock": true,
       "**/workspace/sharables": true,
       "**/configs": true, 
-      "**/configs/**": true,
+      "**/configs/**": true
     },
     "workbench.panel.visible": false,
-    "workbench.activityBar.location": "hidden"
+    "workbench.activityBar.location": "hidden",
+    "saveEditorLayout.list": [
+      {
+        "name": "proto",
+        "documents": [
+          {
+            "fsPath": "configs/default.code-workspace",
+            "column": 1,
+            "pinned": false
+          },
+          {
+            "fsPath": "workspace/notes.typ",
+            "column": 3,
+            "pinned": false
+          }
+        ],
+        "layout": {
+          "orientation": 0,
+          "groups": [
+            {
+              "size": 565
+            },
+            {
+              "size": 542,
+              "groups": [
+                {
+                  "size": 430
+                },
+                {
+                  "size": 432
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
   }
 }

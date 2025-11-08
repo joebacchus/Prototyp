@@ -1,9 +1,11 @@
 from cycler import cycler
 import matplotlib as mpl
 import scienceplots
+from tqdm import tqdm
 import networkx as nx
 import numpy as np
 import pandas as pd
+import scipy as sp
 import torch as th
 import json
 import os
@@ -54,15 +56,11 @@ class Shared:
         with open(self.path, "w") as file:
             json.dump(data, file, indent=4)
 
-
 share = Shared("sharables/objects.json")
-
 
 os.environ["PATH"] = "/Library/TeX/texbin:" + os.environ["PATH"]
 
-
 plt.style.use('science')
-
 
 n_colors = 4
 cmap_name = "inferno"
