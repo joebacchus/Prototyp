@@ -138,6 +138,16 @@
     ],
   )
 
+  let frame(stroke) = (x, y) => (
+    left: if x > 0 { 0pt } else { stroke },
+    right: stroke,
+    top: if y < 2 { stroke } else { 0pt },
+    bottom: stroke,
+  )
+  set table(
+    fill: (_, y) => if calc.odd(y) { rgb("#ededed") },
+    stroke: frame(0.5pt + black),
+  )
   set text(size: 10pt)
 
   show heading: set text(size: 12pt, weight: "regular")
@@ -182,15 +192,23 @@
   bend: b,
 )
 
+#let mathify(..entries) = {
+  let math_entries = ()
+  for entry in entries.pos() {
+    math_entries.push(eval(entry, mode:"math"))
+  }
+  return math_entries
+}
+
 #let share = {
   json("../workspace/sharables/objects.json")
     .pairs()
     .map(((k, (kind, meta, value))) => {
       if kind == "svg" {
-        value = align(center, image(bytes(value)))
+        value = align(center,  image(bytes(value)))
       } else if kind == "csv" {
         let raw_value = csv(bytes(value))
-        value = align(center, table(columns: meta.at(1), ..raw_value.flatten()))
+        value = align(center, table(columns: meta.at(1), ..mathify(..raw_value.flatten())))
       }
       (k, value)
     })
